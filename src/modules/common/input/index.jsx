@@ -1,13 +1,12 @@
 import { vars } from '../../../stylesheet'
 import styled from 'styled-components'
+import warning from '../../../assets/worning.svg'
 
 const InputStyle = styled.input`
 	width: 280px;
 	height: 40px;
-	left: 20px;
-	top: 5093px;
 	padding: 8px;
-
+	position: relative;
 	background: ${vars.color.background.primary};
 	border: 1px solid ${vars.color.accent.fourth};
 
@@ -16,9 +15,15 @@ const InputStyle = styled.input`
 		line-height: 23px;
 		color: ${vars.color.fonts.fourth};
 	}
+
+	&:invalid {
+		background-image: url(${warning});
+		background-repeat: no-repeat;
+		background-position: 98%;
+	}
 `
 
-export const Input = ({ name, children, value, inputData, isRequired, placeholder, className }) => {
+export const Input = ({ name, value, inputData, isRequired, placeholder, minlength, pattern, className }) => {
 	return (
 		<InputStyle
 			className={className}
@@ -28,6 +33,8 @@ export const Input = ({ name, children, value, inputData, isRequired, placeholde
 			type='text'
 			placeholder={placeholder}
 			required={isRequired ? true : false}
+			minlength={minlength}
+			pattern={pattern}
 		/>
 	)
 }

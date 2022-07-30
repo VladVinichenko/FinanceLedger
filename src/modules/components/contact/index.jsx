@@ -98,6 +98,7 @@ const encode = (data) => {
 
 export const Contact = () => {
 	const handleSubmit = (e) => {
+		e.preventDefault()
 		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -105,8 +106,6 @@ export const Contact = () => {
 		})
 			.then(() => alert('Success!'))
 			.catch((error) => alert(error))
-
-		e.preventDefault()
 	}
 
 	return (
@@ -117,8 +116,14 @@ export const Contact = () => {
 				</PictureWrapper>
 				<ContactForm method='post' onSubmit={handleSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
-					<Input name='name' placeholder='Enter your name'></Input>
-					<Input name='email' placeholder='Enter email*' isRequired></Input>
+					<Input minlength='2' name='name' placeholder='Enter your name'></Input>
+					<Input
+						pattern='/\A[^@]+@([^@\.]+\.)+[^@\.]+\z/'
+						minlength='2'
+						name='email'
+						placeholder='Enter email*'
+						isRequired
+					></Input>
 					<ContactButton type='submit'>Send</ContactButton>
 				</ContactForm>
 			</ContactContainer>

@@ -1,5 +1,3 @@
-import styled from 'styled-components'
-
 import cases1Jpg from '../../../assets/cases/cases1.jpg'
 import cases1Webp from '../../../assets/cases/cases1.webp'
 import cases1Jpg2x from '../../../assets/cases/cases1@2x.jpg'
@@ -24,10 +22,10 @@ import cases6Jpg from '../../../assets/cases/cases6.jpg'
 import cases6Webp from '../../../assets/cases/cases6.webp'
 import cases6Jpg2x from '../../../assets/cases/cases6@2x.jpg'
 import cases6Webp2x from '../../../assets/cases/cases6@2x.webp'
-
 import { Container } from '../container'
 import { vars } from '../../../stylesheet'
 import { Picture } from '../../common'
+import styled from 'styled-components'
 
 const CasesSection = styled.section`
 	display: flex;
@@ -118,24 +116,34 @@ export const Cases = () => {
 					<CasesText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sapiente!</CasesText>
 					<PictureList>
 						<PictureWrapper>
-							<a href={cases1Jpg2x} data-lightbox='efe'>
+							<a class='demo' href={cases1Jpg2x} data-lightbox='cases'>
 								<Picture jpg1x={cases1Jpg} jpg2x={cases1Webp} webp1x={cases1Jpg2x} webp2x={cases1Webp2x} />
 							</a>
 						</PictureWrapper>
 						<PictureWrapper>
-							<Picture jpg1x={cases2Jpg} jpg2x={cases2Webp} webp1x={cases2Jpg2x} webp2x={cases2Webp2x} />
+							<a class='demo' href={cases2Jpg2x} data-lightbox='cases'>
+								<Picture jpg1x={cases2Jpg} jpg2x={cases2Webp} webp1x={cases2Jpg2x} webp2x={cases2Webp2x} />
+							</a>
 						</PictureWrapper>
 						<PictureWrapper>
-							<Picture jpg1x={cases3Jpg} jpg2x={cases3Webp} webp1x={cases3Jpg2x} webp2x={cases3Webp2x} />
+							<a class='demo' href={cases3Jpg2x} data-lightbox='cases'>
+								<Picture jpg1x={cases3Jpg} jpg2x={cases3Webp} webp1x={cases3Jpg2x} webp2x={cases3Webp2x} />
+							</a>
 						</PictureWrapper>
 						<PictureWrapper>
-							<Picture jpg1x={cases4Jpg} jpg2x={cases4Webp} webp1x={cases4Jpg2x} webp2x={cases4Webp2x} />
+							<a class='demo' href={cases4Jpg2x} data-lightbox='cases'>
+								<Picture jpg1x={cases4Jpg} jpg2x={cases4Webp} webp1x={cases4Jpg2x} webp2x={cases4Webp2x} />
+							</a>
 						</PictureWrapper>
 						<PictureWrapper>
-							<Picture jpg1x={cases5Jpg} jpg2x={cases5Webp} webp1x={cases5Jpg2x} webp2x={cases5Webp2x} />
+							<a class='demo' href={cases5Jpg2x} data-lightbox='cases'>
+								<Picture jpg1x={cases5Jpg} jpg2x={cases5Webp} webp1x={cases5Jpg2x} webp2x={cases5Webp2x} />
+							</a>
 						</PictureWrapper>
 						<PictureWrapper>
-							<Picture jpg1x={cases6Jpg} jpg2x={cases6Webp} webp1x={cases6Jpg2x} webp2x={cases6Webp2x} />
+							<a class='demo' href={cases6Jpg2x} data-lightbox='cases'>
+								<Picture jpg1x={cases6Jpg} jpg2x={cases6Webp} webp1x={cases6Jpg2x} webp2x={cases6Webp2x} />
+							</a>
 						</PictureWrapper>
 					</PictureList>
 				</CasesBox>
