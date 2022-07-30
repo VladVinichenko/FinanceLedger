@@ -90,8 +90,22 @@ const PictureWrapper = styled.div`
 	}
 `
 
+const encode = (data) => {
+	return Object.keys(data)
+		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+		.join('&')
+}
+
 export const Contact = () => {
-	const formSubmit = (e) => {
+	const handleSubmit = (e) => {
+		fetch('/', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+			body: encode({ 'form-name': 'contact', ...this.state }),
+		})
+			.then(() => alert('Success!'))
+			.catch((error) => alert(error))
+
 		e.preventDefault()
 	}
 
@@ -101,7 +115,7 @@ export const Contact = () => {
 				<PictureWrapper>
 					<Picture jpg1x={contactJpg} jpg2x={contact2xJpg} webp1x={contactWebp} webp2x={contact2xWebp} />
 				</PictureWrapper>
-				<ContactForm onSubmit={formSubmit} name='callback'>
+				<ContactForm method='post' onSubmit={handleSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
 					<Input name='name' placeholder='Enter your name'></Input>
 					<Input name='email' placeholder='Enter email*' isRequired></Input>
