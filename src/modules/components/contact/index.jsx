@@ -117,13 +117,7 @@ export const Contact = () => {
 				<ContactForm method='post' onSubmit={handleSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
 					<Input minlength='2' name='name' placeholder='Enter your name'></Input>
-					<Input
-						pattern='/\A[^@]+@([^@\.]+\.)+[^@\.]+\z/'
-						minlength='2'
-						name='email'
-						placeholder='Enter email*'
-						isRequired
-					></Input>
+					<Input minlength='2' name='email' placeholder='Enter email*' isRequired></Input>
 					<ContactButton type='submit'>Send</ContactButton>
 				</ContactForm>
 			</ContactContainer>
