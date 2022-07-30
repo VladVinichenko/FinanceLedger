@@ -6,6 +6,7 @@ import contact2xWebp from '../../../assets/home/contact@2x.webp'
 import { Container } from '../container'
 import { vars } from '../../../stylesheet'
 import { Button, Picture, Input } from '../../common'
+import { useState } from 'react'
 
 const ContactSection = styled.section`
 	display: flex;
@@ -90,19 +91,19 @@ const PictureWrapper = styled.div`
 	}
 `
 
-const encode = (data) => {
-	return Object.keys(data)
-		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-		.join('&')
-}
-
 export const Contact = () => {
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+
 	const handleSubmit = (e) => {
 		e.preventDefault()
 		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: encode({ 'form-name': 'callback' }),
+			body: {
+				name: name,
+				email: email,
+			},
 		})
 			.then(() => alert('Success!'))
 			.catch((error) => alert(error))
@@ -116,8 +117,15 @@ export const Contact = () => {
 				</PictureWrapper>
 				<ContactForm method='post' onSubmit={handleSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
-					<Input minlength='2' name='name' placeholder='Enter your name'></Input>
-					<Input minlength='2' name='email' placeholder='Enter email*' isRequired></Input>
+					<Input value={name} inputData={setName} minlength='2' name='name' placeholder='Enter your name'></Input>
+					<Input
+						value={email}
+						inputData={setEmail}
+						minlength='2'
+						name='email'
+						placeholder='Enter email*'
+						isRequired
+					></Input>
 					<ContactButton type='submit'>Send</ContactButton>
 				</ContactForm>
 			</ContactContainer>
