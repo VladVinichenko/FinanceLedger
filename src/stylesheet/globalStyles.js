@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import { vars } from "./vars";
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -24,18 +25,23 @@ html {
 }
 
 body {
+  
+  font-style: normal;
   font-size: 16px;
-  line-height: 24px;
+  line-height: 26px;
   font-weight: 400;
   margin: 0;
-
+  background-color: violet;
+    @media screen and (min-width: ${vars.breakpoints.tablet}) {
+  font-size: 18px;
+  line-height: 28px;
 }
 
 
 
 * {
   box-sizing: border-box;
-  font-family: 'Circe', sans-serif;
+  font-family: 'Open Sans';
   
   &::before, &::after {
     box-sizing: border-box;
@@ -70,7 +76,6 @@ button {
 
 input,
 textarea {
-  color: ${(props) => props.theme.color.font.primary};
     outline: none;
     margin: 0;
     border: 0;
@@ -91,8 +96,7 @@ textarea {
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0px 1000px ${(props) =>
-      props.theme.color.background.primary} inset;
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
     transition: background-color 5000s ease-in-out 0s;
   }
 }

@@ -1,11 +1,17 @@
-import { Logo } from "../../common";
-
-console.log(Logo);
+import { Logo } from '../../common'
+import { About, Header, Hero, Blog, Cases, Team, Contact, Footer } from '../../components'
 
 export const Home = () => {
-  return (
-    <>
-      <Logo />
-    </>
-  );
-};
+	return (
+		<>
+			<Header />
+			<Hero />
+			<About />
+			<Cases />
+			<Blog />
+			<Team />
+			<Contact />
+			<Footer />
+		</>
+	)
+}
