@@ -5,14 +5,15 @@ import { sprite } from '../../../assets'
 const SocialList = styled.ul`
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 	align-items: center;
 	margin-bottom: 8px;
-	li {
+	width: 100%;
+	/* li {
 		&:not(:last-child) {
 			margin-right: 25px;
 		}
-	}
+	} */
 `
 
 const SocialItem = styled.li``

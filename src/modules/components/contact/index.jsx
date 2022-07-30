@@ -97,10 +97,10 @@ export const Contact = () => {
 				<PictureWrapper>
 					<Picture jpg1x={contactJpg} jpg2x={contact2xJpg} webp1x={contactWebp} webp2x={contact2xWebp} />
 				</PictureWrapper>
-				<ContactForm>
+				<ContactForm name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
-					<Input placeholder='Enter your name'></Input>
-					<Input placeholder='Enter email*' isRequired></Input>
+					<Input name='name' placeholder='Enter your name'></Input>
+					<Input name='email' placeholder='Enter email*' isRequired></Input>
 					<ContactButton type='submit'>Send</ContactButton>
 				</ContactForm>
 			</ContactContainer>

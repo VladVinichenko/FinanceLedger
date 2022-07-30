@@ -1,5 +1,5 @@
-import { createGlobalStyle } from "styled-components";
-import { vars } from "./vars";
+import { createGlobalStyle } from 'styled-components'
+import { vars } from './vars'
 
 export const GlobalStyle = createGlobalStyle`
 html {
@@ -25,13 +25,12 @@ html {
 }
 
 body {
-  
   font-style: normal;
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;
   margin: 0;
-  background-color: violet;
+  background-color: ${vars.color.background.seconary};
     @media screen and (min-width: ${vars.breakpoints.tablet}) {
   font-size: 18px;
   line-height: 28px;
@@ -111,4 +110,4 @@ textarea {
   outline: none;
 }
 
-`;
+`

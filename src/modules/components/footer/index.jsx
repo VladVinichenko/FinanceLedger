@@ -20,12 +20,19 @@ const FooterBox = styled.div`
 
 const FooterText = styled.h5``
 
+const FooterSocialBox = styled.div`
+	width: 216px;
+`
+
 export const Footer = () => {
 	return (
 		<FooterSection>
 			<Container sidePaddings='0' backgroundColor={vars.color.background.third}>
 				<FooterBox>
-					<Social />
+					<FooterSocialBox>
+						<Social />
+					</FooterSocialBox>
+
 					<FooterText>Copyright © 2021 - FinanceLedger</FooterText>
 				</FooterBox>
 			</Container>

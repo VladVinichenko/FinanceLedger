@@ -15,7 +15,7 @@ import person3Webp2x from '../../../assets/team/person3@2x.webp'
 
 import { Container } from '../container'
 import { vars } from '../../../stylesheet'
-import { Picture } from '../../common'
+import { Picture, Social } from '../../common'
 
 const TeamSection = styled.section`
 	display: flex;
@@ -106,7 +106,12 @@ const PictureWrapper = styled.div`
 
 	&:hover,
 	&:focus {
-		transform: scale(1.1);
+		transform: scale(1.05);
+		box-shadow: 2px 2px 12px 2px rgba(0, 0, 0, 0.4);
+	}
+
+	&:hover .teamListSocial {
+		opacity: 1;
 	}
 `
 
@@ -123,15 +128,26 @@ const TeamList = styled.ul`
 	}
 `
 
-const TeamListSocial = styled.ul`
+const TeamListSocial = styled.div`
 	opacity: 0;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.6);
 	position: absolute;
 	width: 100%;
 	height: 100%;
-
-	${PictureWrapper} ~ && {
-		opacity: 0.8;
+	transition: opacity 250ms;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	fill: ${vars.color.fonts.primary};
+	padding-left: 30px;
+	padding-right: 30px;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		padding-left: 103px;
+		padding-right: 103px;
 	}
 `
 
@@ -146,7 +162,9 @@ export const Team = () => {
 					<TeamList>
 						<TeamItem>
 							<PictureWrapper>
-								<TeamListSocial></TeamListSocial>
+								<TeamListSocial className='teamListSocial'>
+									<Social />
+								</TeamListSocial>
 								<Picture jpg1x={person1Jpg} jpg2x={person1Webp} webp1x={person1Jpg2x} webp2x={person1Webp2x} />
 								<TeamWrapper></TeamWrapper>
 							</PictureWrapper>
@@ -155,6 +173,9 @@ export const Team = () => {
 						</TeamItem>
 						<TeamItem>
 							<PictureWrapper>
+								<TeamListSocial className='teamListSocial'>
+									<Social />
+								</TeamListSocial>
 								<Picture jpg1x={person2Jpg} jpg2x={person2Webp} webp1x={person2Jpg2x} webp2x={person2Webp2x} />
 							</PictureWrapper>
 							<PersonName>Jane Doe</PersonName>
@@ -162,6 +183,9 @@ export const Team = () => {
 						</TeamItem>
 						<TeamItem>
 							<PictureWrapper>
+								<TeamListSocial className='teamListSocial'>
+									<Social />
+								</TeamListSocial>
 								<Picture jpg1x={person3Jpg} jpg2x={person3Webp} webp1x={person3Jpg2x} webp2x={person3Webp2x} />
 							</PictureWrapper>
 							<PersonName>Steve Smith</PersonName>
