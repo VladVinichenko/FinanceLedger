@@ -58,7 +58,15 @@ const AboutText = styled.p`
 
 const AboutButton = styled(Button)`
 	border: 1px solid ${vars.color.accent.seconary};
-	border-radius: 5px;
+
+	transition: all 250ms;
+
+	&:hover,
+	&:focus {
+		border: 1px solid ${vars.color.accent.primary};
+		background-color: ${vars.color.accent.seconary};
+		color: ${vars.color.accent.primary};
+	}
 `
 
 const PictureWrapper = styled.div`
@@ -85,11 +93,12 @@ const PictureWrapper = styled.div`
 
 export const About = () => {
 	return (
-		<AboutSection>
+		<AboutSection id='about'>
 			<AboutContainer sidePaddings='0' backgroundColor={vars.color.background.fifth}>
 				<PictureWrapper>
 					<Picture jpg1x={peopleJpg} jpg2x={people2xJpg} webp1x={peopleWebp} webp2x={people2xWebp} />
 				</PictureWrapper>
+
 				<AboutBox>
 					<AboutDescr>What you are looking for</AboutDescr>
 					<AboutTitle>We provide bespoke solutions</AboutTitle>

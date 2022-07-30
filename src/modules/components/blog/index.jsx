@@ -60,6 +60,15 @@ const BlogButton = styled(Button)`
 	border: 1px solid ${vars.color.accent.seconary};
 	background-color: ${vars.color.accent.third};
 	border-radius: 5px;
+
+	transition: all 250ms;
+
+	&:hover,
+	&:focus {
+		border: 1px solid ${vars.color.accent.third};
+		background-color: ${vars.color.accent.seconary};
+		color: ${vars.color.accent.third};
+	}
 `
 
 const PictureWrapper = styled.div`
@@ -86,7 +95,7 @@ const PictureWrapper = styled.div`
 
 export const Blog = () => {
 	return (
-		<BlogSection>
+		<BlogSection id='blog'>
 			<BlogContainer sidePaddings='0' backgroundColor={vars.color.background.fourth}>
 				<PictureWrapper>
 					<Picture jpg1x={blogJpg} jpg2x={blog2xJpg} webp1x={blogWebp} webp2x={blog2xWebp} />

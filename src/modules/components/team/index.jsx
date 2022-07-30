@@ -53,6 +53,7 @@ const TeamItem = styled.li`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	position: relative;
 	&:not(:last-child) {
 		margin-bottom: 20px;
 		color: ${vars.color.fonts.third};
@@ -62,6 +63,15 @@ const TeamItem = styled.li`
 		height: fit-content;
 	}
 `
+
+const TeamWrapper = styled.div`
+	background-color: black;
+	opacity: 0.6;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+`
+
 const PersonName = styled.h4`
 	font-size: 23px;
 	line-height: 1.25;
@@ -78,8 +88,9 @@ const TeamText = styled.p`
 const PictureWrapper = styled.div`
 	overflow: hidden;
 	height: 176px;
-
+	position: relative;
 	margin-bottom: 16px;
+	z-index: 1;
 
 	@media screen and (min-width: ${vars.breakpoints.tablet}) {
 		width: 223px;
@@ -90,6 +101,12 @@ const PictureWrapper = styled.div`
 		width: 424px;
 		height: 284px;
 		margin-bottom: 20px;
+	}
+	transition: all 250ms;
+
+	&:hover,
+	&:focus {
+		transform: scale(1.1);
 	}
 `
 
@@ -106,6 +123,18 @@ const TeamList = styled.ul`
 	}
 `
 
+const TeamListSocial = styled.ul`
+	opacity: 0;
+	background-color: black;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+
+	${PictureWrapper} ~ && {
+		opacity: 0.8;
+	}
+`
+
 export const Team = () => {
 	return (
 		<TeamSection>
@@ -117,7 +146,9 @@ export const Team = () => {
 					<TeamList>
 						<TeamItem>
 							<PictureWrapper>
+								<TeamListSocial></TeamListSocial>
 								<Picture jpg1x={person1Jpg} jpg2x={person1Webp} webp1x={person1Jpg2x} webp2x={person1Webp2x} />
+								<TeamWrapper></TeamWrapper>
 							</PictureWrapper>
 							<PersonName>John Doe</PersonName>
 							<PersonDescr>President</PersonDescr>

@@ -85,6 +85,12 @@ const PictureWrapper = styled.li`
 		width: 424px;
 		height: 282px;
 	}
+	transition: opacity 200ms;
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+		cursor: pointer;
+	}
 `
 
 const PictureList = styled.ul`
@@ -104,7 +110,7 @@ const PictureList = styled.ul`
 
 export const Cases = () => {
 	return (
-		<CasesSection>
+		<CasesSection id='cases'>
 			<Container>
 				<CasesBox>
 					<CasesDescr>This is what we do</CasesDescr>
@@ -112,7 +118,9 @@ export const Cases = () => {
 					<CasesText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sapiente!</CasesText>
 					<PictureList>
 						<PictureWrapper>
-							<Picture jpg1x={cases1Jpg} jpg2x={cases1Webp} webp1x={cases1Jpg2x} webp2x={cases1Webp2x} />
+							<a href={cases1Jpg2x} data-lightbox='efe'>
+								<Picture jpg1x={cases1Jpg} jpg2x={cases1Webp} webp1x={cases1Jpg2x} webp2x={cases1Webp2x} />
+							</a>
 						</PictureWrapper>
 						<PictureWrapper>
 							<Picture jpg1x={cases2Jpg} jpg2x={cases2Webp} webp1x={cases2Jpg2x} webp2x={cases2Webp2x} />

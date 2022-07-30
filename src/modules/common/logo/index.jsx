@@ -2,9 +2,17 @@ import { sprite } from '../../../assets'
 import styled from 'styled-components'
 import { vars } from '../../../stylesheet'
 
+const scrollToTop = (e) => {
+	e.preventDefault()
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth',
+	})
+}
+
 export const Logo = ({ className }) => {
 	return (
-		<LogoLink className={className}>
+		<LogoLink onClick={scrollToTop} className={className}>
 			<LogoSvg>
 				<use href={`${sprite}#logo`}></use>
 			</LogoSvg>
@@ -18,6 +26,13 @@ export const Logo = ({ className }) => {
 const LogoLink = styled.a`
 	display: flex;
 	align-items: center;
+	transition: all 250ms;
+
+	&:hover,
+	&:focus {
+		transform: scale(1.05);
+		filter: brightness(1.2);
+	}
 `
 
 const LogoSvg = styled.svg`

@@ -59,6 +59,13 @@ const ContactTitle = styled.h5`
 
 const ContactButton = styled(Button)`
 	width: 100%;
+
+	transition: opacity 250ms;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
 `
 
 const PictureWrapper = styled.div`
@@ -85,7 +92,7 @@ const PictureWrapper = styled.div`
 
 export const Contact = () => {
 	return (
-		<ContactSection>
+		<ContactSection id='contact'>
 			<ContactContainer sidePaddings='0' backgroundColor={vars.color.background.seconary}>
 				<PictureWrapper>
 					<Picture jpg1x={contactJpg} jpg2x={contact2xJpg} webp1x={contactWebp} webp2x={contact2xWebp} />

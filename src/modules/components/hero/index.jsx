@@ -9,36 +9,27 @@ import showcase2xJpg from '../../../assets/home/showcase@2x.jpg'
 import showcase2xWebp from '../../../assets/home/showcase@2x.webp'
 
 const SectionHero = styled.section`
-  padding-top: 142px;
-  padding-bottom: 96px;
-  background-color: black;
+	padding-top: 142px;
+	padding-bottom: 96px;
+	background-color: black;
 
-  position: relative;
- 
-    linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${showcaseJpg});
-  background-repeat: no-repeat;
-  background-size: cover;
+	position: relative;
 
-  @media (min-device-pixel-ratio: 2),
-    (min-resolution: 192dpi),
-    (min-resolution: 2dppx) {
-    background-image: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.5),
-        rgba(0, 0, 0, 0.5)
-      ),
-      url(${showcase2xJpg});
-  }
+	background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${showcaseJpg});
+	background-repeat: no-repeat;
+	background-size: cover;
 
+	@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+		background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${showcase2xJpg});
+	}
 
-		@media screen and (min-width: ${vars.breakpoints.tablet}) {
-    padding-top: 407px;
-  padding-bottom: 420px;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		padding-top: 407px;
+		padding-bottom: 420px;
 	}
 	@media screen and (min-width: ${vars.breakpoints.desktop}) {
-  padding-top: 279px;
-  padding-bottom: 282px;
+		padding-top: 279px;
+		padding-bottom: 282px;
 	}
 `
 
@@ -73,6 +64,12 @@ const HeroText = styled.p`
 const HeroButton = styled(Button)`
 	margin-left: auto;
 	margin-right: auto;
+	transition: opacity 250ms;
+
+	&:hover,
+	&:focus {
+		opacity: 0.8;
+	}
 `
 
 const HeroSvg = styled.svg`
@@ -85,7 +82,7 @@ const HeroSvg = styled.svg`
 export const Hero = () => {
 	return (
 		<Container sidePaddings='0'>
-			<SectionHero>
+			<SectionHero id='home'>
 				<HeroTitle>The Sky Is The Limit</HeroTitle>
 				<HeroText>We provide world class financial assistance</HeroText>
 				<HeroButton>
