@@ -91,13 +91,17 @@ const PictureWrapper = styled.div`
 `
 
 export const Contact = () => {
+	const formSubmit = (e) => {
+		e.preventDefault()
+	}
+
 	return (
 		<ContactSection id='contact'>
 			<ContactContainer sidePaddings='0' backgroundColor={vars.color.background.seconary}>
 				<PictureWrapper>
 					<Picture jpg1x={contactJpg} jpg2x={contact2xJpg} webp1x={contactWebp} webp2x={contact2xWebp} />
 				</PictureWrapper>
-				<ContactForm name='callback'>
+				<ContactForm onSubmit={formSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
 					<Input name='name' placeholder='Enter your name'></Input>
 					<Input name='email' placeholder='Enter email*' isRequired></Input>
