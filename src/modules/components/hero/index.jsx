@@ -4,9 +4,7 @@ import { Button } from '../../common'
 import { Container } from '../container'
 import { sprite } from '../../../assets'
 import showcaseJpg from '../../../assets/home/showcase.jpg'
-import showcaseWebp from '../../../assets/home/showcase.webp'
 import showcase2xJpg from '../../../assets/home/showcase@2x.jpg'
-import showcase2xWebp from '../../../assets/home/showcase@2x.webp'
 
 const SectionHero = styled.section`
 	padding-top: 142px;

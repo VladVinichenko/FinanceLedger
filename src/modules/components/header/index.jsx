@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Logo, NavLink } from '../../common'
-import { Container } from '../container'
 import { vars } from '../../../stylesheet'
 import { useState } from 'react'
 

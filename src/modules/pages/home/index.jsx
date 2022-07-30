@@ -1,4 +1,3 @@
-import { Logo } from '../../common'
 import { About, Header, Hero, Blog, Cases, Team, Contact, Footer } from '../../components'
 
 document.querySelectorAll('a[href^="#"').forEach((link) => {
