@@ -90,6 +90,11 @@ const PictureWrapper = styled.div`
 		}
 	}
 `
+const encode = (data) => {
+	return Object.keys(data)
+		.map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+		.join('&')
+}
 
 export const Contact = () => {
 	const [name, setName] = useState('')
@@ -100,10 +105,7 @@ export const Contact = () => {
 		fetch('/', {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-			body: {
-				name: name,
-				email: email,
-			},
+			body: encode({ 'form-name': 'callback', name, email }),
 		})
 			.then(() => alert('Success!'))
 			.catch((error) => alert(error))
