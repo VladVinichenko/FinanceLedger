@@ -43,6 +43,9 @@ const CasesDescr = styled.p`
 	color: ${vars.color.fonts.third};
 	margin-bottom: 20px;
 	text-align: center;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		margin-bottom: 24px;
+	}
 `
 const CasesTitle = styled.h3`
 	font-weight: 300;
@@ -51,18 +54,51 @@ const CasesTitle = styled.h3`
 	color: ${vars.color.fonts.third};
 	margin-bottom: 20px;
 	text-align: center;
+	padding: 0 10px;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		margin-bottom: 24px;
+		padding: 0;
+	}
 `
 const CasesText = styled.p`
 	color: ${vars.color.fonts.third};
 	margin-bottom: 20px;
 	text-align: center;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		margin-bottom: 24px;
+	}
 `
-const PictureWrapper = styled.div`
+const PictureWrapper = styled.li`
 	overflow: hidden;
 	height: 176px;
 
 	&:not(:last-child) {
 		margin-bottom: 8px;
+	}
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		width: 223px;
+		height: 148px;
+		margin: 0;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		width: 424px;
+		height: 282px;
+	}
+`
+
+const PictureList = styled.ul`
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-auto-rows: 148px;
+		grid-column-gap: 18px;
+		grid-row-gap: 18px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		grid-auto-rows: 282px;
+		grid-column-gap: 20px;
+		grid-row-gap: 24px;
 	}
 `
 
@@ -72,28 +108,28 @@ export const Cases = () => {
 			<Container>
 				<CasesBox>
 					<CasesDescr>This is what we do</CasesDescr>
-					<CasesTitle>
-						Business <br /> Cases
-					</CasesTitle>
+					<CasesTitle>Business Cases</CasesTitle>
 					<CasesText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sapiente!</CasesText>
-					<PictureWrapper>
-						<Picture jpg1x={cases1Jpg} jpg2x={cases1Webp} webp1x={cases1Jpg2x} webp2x={cases1Webp2x} />
-					</PictureWrapper>
-					<PictureWrapper>
-						<Picture jpg1x={cases2Jpg} jpg2x={cases2Webp} webp1x={cases2Jpg2x} webp2x={cases2Webp2x} />
-					</PictureWrapper>
-					<PictureWrapper>
-						<Picture jpg1x={cases3Jpg} jpg2x={cases3Webp} webp1x={cases3Jpg2x} webp2x={cases3Webp2x} />
-					</PictureWrapper>
-					<PictureWrapper>
-						<Picture jpg1x={cases4Jpg} jpg2x={cases4Webp} webp1x={cases4Jpg2x} webp2x={cases4Webp2x} />
-					</PictureWrapper>
-					<PictureWrapper>
-						<Picture jpg1x={cases5Jpg} jpg2x={cases5Webp} webp1x={cases5Jpg2x} webp2x={cases5Webp2x} />
-					</PictureWrapper>
-					<PictureWrapper>
-						<Picture jpg1x={cases6Jpg} jpg2x={cases6Webp} webp1x={cases6Jpg2x} webp2x={cases6Webp2x} />
-					</PictureWrapper>
+					<PictureList>
+						<PictureWrapper>
+							<Picture jpg1x={cases1Jpg} jpg2x={cases1Webp} webp1x={cases1Jpg2x} webp2x={cases1Webp2x} />
+						</PictureWrapper>
+						<PictureWrapper>
+							<Picture jpg1x={cases2Jpg} jpg2x={cases2Webp} webp1x={cases2Jpg2x} webp2x={cases2Webp2x} />
+						</PictureWrapper>
+						<PictureWrapper>
+							<Picture jpg1x={cases3Jpg} jpg2x={cases3Webp} webp1x={cases3Jpg2x} webp2x={cases3Webp2x} />
+						</PictureWrapper>
+						<PictureWrapper>
+							<Picture jpg1x={cases4Jpg} jpg2x={cases4Webp} webp1x={cases4Jpg2x} webp2x={cases4Webp2x} />
+						</PictureWrapper>
+						<PictureWrapper>
+							<Picture jpg1x={cases5Jpg} jpg2x={cases5Webp} webp1x={cases5Jpg2x} webp2x={cases5Webp2x} />
+						</PictureWrapper>
+						<PictureWrapper>
+							<Picture jpg1x={cases6Jpg} jpg2x={cases6Webp} webp1x={cases6Jpg2x} webp2x={cases6Webp2x} />
+						</PictureWrapper>
+					</PictureList>
 				</CasesBox>
 			</Container>
 		</CasesSection>

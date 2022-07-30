@@ -20,10 +20,18 @@ import { Picture } from '../../common'
 const TeamSection = styled.section`
 	display: flex;
 	flex-direction: column;
+	height: max-content;
 `
 const TeamBox = styled.div`
 	padding-top: 40px;
 	padding-bottom: 40px;
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		height: max-content;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		padding-top: 80px;
+		padding-bottom: 80px;
+	}
 `
 const TeamDescr = styled.p`
 	font-size: 20px;
@@ -41,13 +49,17 @@ const TeamTitle = styled.h3`
 	text-align: center;
 `
 
-const TeamList = styled.li`
+const TeamItem = styled.li`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	&:not(:last-child) {
 		margin-bottom: 20px;
 		color: ${vars.color.fonts.third};
+	}
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		margin: 0;
+		height: fit-content;
 	}
 `
 const PersonName = styled.h4`
@@ -68,6 +80,30 @@ const PictureWrapper = styled.div`
 	height: 176px;
 
 	margin-bottom: 16px;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		width: 223px;
+		height: 148px;
+		margin-bottom: 14px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		width: 424px;
+		height: 284px;
+		margin-bottom: 20px;
+	}
+`
+
+const TeamList = styled.ul`
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		/* grid-auto-rows: 148px; */
+		grid-column-gap: 17px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		/* grid-auto-rows: 284px; */
+		grid-column-gap: 19px;
+	}
 `
 
 export const Team = () => {
@@ -76,37 +112,31 @@ export const Team = () => {
 			<Container>
 				<TeamBox>
 					<TeamDescr>Who we are</TeamDescr>
-					<TeamTitle>
-						Our
-						<br />
-						Professional
-						<br />
-						Team
-					</TeamTitle>
+					<TeamTitle>Our Professional Team</TeamTitle>
 					<TeamText>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, sapiente!</TeamText>
-					<ul>
-						<TeamList>
+					<TeamList>
+						<TeamItem>
 							<PictureWrapper>
 								<Picture jpg1x={person1Jpg} jpg2x={person1Webp} webp1x={person1Jpg2x} webp2x={person1Webp2x} />
 							</PictureWrapper>
 							<PersonName>John Doe</PersonName>
 							<PersonDescr>President</PersonDescr>
-						</TeamList>
-						<TeamList>
+						</TeamItem>
+						<TeamItem>
 							<PictureWrapper>
 								<Picture jpg1x={person2Jpg} jpg2x={person2Webp} webp1x={person2Jpg2x} webp2x={person2Webp2x} />
 							</PictureWrapper>
 							<PersonName>Jane Doe</PersonName>
 							<PersonDescr>Vice President</PersonDescr>
-						</TeamList>
-						<TeamList>
+						</TeamItem>
+						<TeamItem>
 							<PictureWrapper>
 								<Picture jpg1x={person3Jpg} jpg2x={person3Webp} webp1x={person3Jpg2x} webp2x={person3Webp2x} />
 							</PictureWrapper>
 							<PersonName>Steve Smith</PersonName>
 							<PersonDescr>Marketing Head</PersonDescr>
-						</TeamList>
-					</ul>
+						</TeamItem>
+					</TeamList>
 				</TeamBox>
 			</Container>
 		</TeamSection>

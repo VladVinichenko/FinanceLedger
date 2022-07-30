@@ -11,6 +11,16 @@ const ContactSection = styled.section`
 	display: flex;
 	flex-direction: column;
 `
+
+const ContactContainer = styled(Container)`
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		flex-direction: row;
+	}
+`
+
 const ContactForm = styled.form`
 	/* background-color: ${vars.color.accent.primary}; */
 	padding-top: 40px;
@@ -20,6 +30,22 @@ const ContactForm = styled.form`
 	input {
 		&:not(:last-child) {
 			margin-bottom: 32px;
+			width: 100%;
+		}
+	}
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		width: 354px;
+		padding-left: 32px;
+		padding-right: 44px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		width: 690px;
+		padding-top: 80px;
+		input {
+			&:last-child {
+				margin-bottom: 60px;
+			}
 		}
 	}
 `
@@ -38,22 +64,39 @@ const ContactButton = styled(Button)`
 const PictureWrapper = styled.div`
 	overflow: hidden;
 	height: 220px;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		height: 354px;
+		width: 368px;
+		img {
+			width: 368px;
+			height: 354px;
+		}
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		height: 460px;
+		width: 670px;
+		img {
+			width: 670px;
+			height: 460px;
+		}
+	}
 `
 
 export const Contact = () => {
 	return (
 		<ContactSection>
-			<Container sidePaddings='0' backgroundColor={vars.color.background.seconary}>
+			<ContactContainer sidePaddings='0' backgroundColor={vars.color.background.seconary}>
 				<PictureWrapper>
 					<Picture jpg1x={contactJpg} jpg2x={contact2xJpg} webp1x={contactWebp} webp2x={contact2xWebp} />
 				</PictureWrapper>
 				<ContactForm>
-					<ContactTitle>We provide bespoke solutions</ContactTitle>
+					<ContactTitle>Request Callback</ContactTitle>
 					<Input placeholder='Enter your name'></Input>
 					<Input placeholder='Enter email*' isRequired></Input>
 					<ContactButton type='submit'>Send</ContactButton>
 				</ContactForm>
-			</Container>
+			</ContactContainer>
 		</ContactSection>
 	)
 }

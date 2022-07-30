@@ -11,11 +11,32 @@ const BlogSection = styled.section`
 	display: flex;
 	flex-direction: column;
 `
+const BlogContainer = styled(Container)`
+	display: flex;
+	flex-direction: column;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		flex-direction: row-reverse;
+	}
+`
+
 const BlogBox = styled.div`
 	padding-top: 40px;
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-bottom: 40px;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		width: 400px;
+		padding-left: 32px;
+		padding-right: 60px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		width: 690px;
+		padding-left: 20px;
+		padding-right: 80px;
+		padding-top: 80px;
+	}
 `
 const BlogDescr = styled.p`
 	font-size: 20px;
@@ -41,11 +62,35 @@ const BlogButton = styled(Button)`
 	border-radius: 5px;
 `
 
+const PictureWrapper = styled.div`
+	overflow: hidden;
+	height: 220px;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		height: 493px;
+		width: 368px;
+		img {
+			width: 368px;
+			height: 493px;
+		}
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		height: 460px;
+		width: 670px;
+		img {
+			width: 670px;
+			height: 460px;
+		}
+	}
+`
+
 export const Blog = () => {
 	return (
 		<BlogSection>
-			<Container sidePaddings='0' backgroundColor={vars.color.background.fourth}>
-				<Picture jpg1x={blogJpg} jpg2x={blog2xJpg} webp1x={blogWebp} webp2x={blog2xWebp} />
+			<BlogContainer sidePaddings='0' backgroundColor={vars.color.background.fourth}>
+				<PictureWrapper>
+					<Picture jpg1x={blogJpg} jpg2x={blog2xJpg} webp1x={blogWebp} webp2x={blog2xWebp} />
+				</PictureWrapper>
 				<BlogBox>
 					<BlogDescr>April 16 2020</BlogDescr>
 					<BlogTitle>Blog Post One</BlogTitle>
@@ -56,7 +101,7 @@ export const Blog = () => {
 					</BlogText>
 					<BlogButton>Read Our Blog</BlogButton>
 				</BlogBox>
-			</Container>
+			</BlogContainer>
 		</BlogSection>
 	)
 }

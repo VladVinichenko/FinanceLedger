@@ -21,11 +21,22 @@ const AboutContainer = styled(Container)`
 `
 
 const AboutBox = styled.div`
-	/* background-color: ${vars.color.accent.primary}; */
 	padding-top: 40px;
 	padding-left: 30px;
 	padding-right: 30px;
 	padding-bottom: 40px;
+
+	@media screen and (min-width: ${vars.breakpoints.tablet}) {
+		width: 400px;
+		padding-left: 32px;
+		padding-right: 60px;
+	}
+	@media screen and (min-width: ${vars.breakpoints.desktop}) {
+		width: 690px;
+		padding-left: 20px;
+		padding-right: 80px;
+		padding-top: 80px;
+	}
 `
 const AboutDescr = styled.p`
 	font-size: 20px;
@@ -54,18 +65,21 @@ const PictureWrapper = styled.div`
 	overflow: hidden;
 	height: 220px;
 
-	&:not(:last-child) {
-		margin-bottom: 8px;
-	}
-
 	@media screen and (min-width: ${vars.breakpoints.tablet}) {
 		height: 589px;
 		width: 368px;
+		img {
+			width: 368px;
+			height: 589px;
+		}
 	}
 	@media screen and (min-width: ${vars.breakpoints.desktop}) {
-		padding-left: ${(props) => props.sidePaddings || '28px'};
-		padding-right: ${(props) => props.sidePaddings || '28px'};
-		width: 1360px;
+		height: 460px;
+		width: 670px;
+		img {
+			width: 670px;
+			height: 460px;
+		}
 	}
 `
 
