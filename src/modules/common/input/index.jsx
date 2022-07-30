@@ -23,7 +23,7 @@ const InputStyle = styled.input`
 	}
 `
 
-export const Input = ({ name, value, inputData, isRequired, placeholder, minlength, pattern, className }) => {
+export const Input = ({ name, value, inputData, isRequired, placeholder, minlength, className }) => {
 	return (
 		<InputStyle
 			className={className}
@@ -34,7 +34,6 @@ export const Input = ({ name, value, inputData, isRequired, placeholder, minleng
 			placeholder={placeholder}
 			required={isRequired ? true : false}
 			minlength={minlength}
-			pattern={pattern}
 		/>
 	)
 }

@@ -109,6 +109,11 @@ export const Contact = () => {
 			.catch((error) => alert(error))
 	}
 
+	const onInput = (evt) => {
+		evt.target.name === 'name' && setName(evt.target.value)
+		evt.target.name === 'email' && setEmail(evt.target.value)
+	}
+
 	return (
 		<ContactSection id='contact'>
 			<ContactContainer sidePaddings='0' backgroundColor={vars.color.background.seconary}>
@@ -117,10 +122,10 @@ export const Contact = () => {
 				</PictureWrapper>
 				<ContactForm method='post' onSubmit={handleSubmit} name='callback'>
 					<ContactTitle>Request Callback</ContactTitle>
-					<Input value={name} inputData={setName} minlength='2' name='name' placeholder='Enter your name'></Input>
+					<Input value={name} inputData={onInput} minlength='2' name='name' placeholder='Enter your name'></Input>
 					<Input
 						value={email}
-						inputData={setEmail}
+						inputData={onInput}
 						minlength='2'
 						name='email'
 						placeholder='Enter email*'
